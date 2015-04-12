@@ -1,0 +1,19 @@
+{% extends "Base.html" %}
+{% block content %}
+<form method="POST">
+    <div>
+         <label>Coordinates</label>
+        <input type="text" name="points" value={{old_points}}>
+
+    </div>
+
+    <div>
+        <button type="submit" >print PLOT</button>
+    </div>
+    <div><figure>
+        <img src={{source}}>
+    </figure></div>
+</form>
+{% endblock %}
+
+        

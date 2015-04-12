@@ -1,0 +1,17 @@
+{% extends "Base.html" %}
+{% block content %}
+ <form method="POST">
+	<div>
+		<label>Enter Values:</label>
+		<input type="text" name="numbers" value="Enter comma seperated numbers" width="2000px">
+	</div>
+	<div>
+		<button type="submit">Find Average</button>
+	</div>
+	<div>
+	<p>Average is:{{ans}}</p>
+	</div>
+ </form>
+ 
+
+{% endblock %}

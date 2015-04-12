@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+{% if title %}
+    <title>{{ title }} </title>
+    {% else %}
+    <title>Webpage</title>
+    {% endif %}
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="static/css/sampleprofile.css" type="text/css" media="all">
+
+
+</head>
+<body>
+<div class="wrap">
+<div id='cssmenu'>
+<ul>
+   <li><a href='http://127.0.0.1:5000/'><span>Home</span></a></li>
+   <li><a href='http://127.0.0.1:5000/plot'><span>Plot</span></a></li>
+   <li><a href='http://127.0.0.1:5000/average'><span>Average</span></a></li>
+   <li class='last'><a href='http://127.0.0.1:5000/team'><span>About Us</span></a></li>
+</ul>
+</div>
+	
+	
+		
+		<div class="container_cat">
+		<aside>
+		<h3><u>Categories</u></h3>
+		<ul class="categories">
+			<li><span><a href="/">Home</a></span></li>
+			<li><span><a href="/average">Average</a></span></li>
+			<li><span><a href="/plot">Plot</a></span></li>
+			<li><span><a href="/team">Team Members</a></span></li>
+			<li><span><a href="https://github.com/">Github Link</a></span></li>
+		</ul>
+		</aside>
+		</div>
+		
+	
+	<section id="content">
+	{% block content %}
+	
+	{% endblock %}
+	</section>
+	</div>
+
+	
+
+</body>
+</html>

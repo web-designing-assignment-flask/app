@@ -1,0 +1,25 @@
+img{
+width:200px;
+height:248px;
+padding-left:100px;}
+
+.intro{
+width:400px;
+position:relative;
+left:400px;
+bottom:250px;
+line-height:25px;
+}
+
+.academic{
+position:relative;
+left:500px;
+bottom:170px;}
+
+.courses{
+position:relative;
+bottom:420px;
+left:100px;
+}
+.academic li,.courses li{
+padding:5px;}
