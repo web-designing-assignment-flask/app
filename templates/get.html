@@ -1,18 +1,20 @@
 {% extends "Base.html" %}
 {% block content %}
  
-<form method="POST">
+<form method="POST" class="plot">
     <div>
-         <label>Coordinates</label>
-        <input type="text" name="points"/>
+         <label>Enter coordinates</label>
+        <input type="text" name="points" placeholder="format:(a,b),(c,d),(e,f)" width="3000px"/>
+         <button type="submit">print PLOT</button>
 
     </div>
 
+
+
+
+
     <div>
-        <button type="submit">print PLOT</button>
-    </div>
-    <div>
-        <h2>Enter the coordinates and see the interpolating curve HERE</h2>
+        <h2>Enter the coordinates <br>and see the interpolating curve <br><span style="color:#ffcf5d"> HERE </span></h2>
     </div>
 </form>
  
