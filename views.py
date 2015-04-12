@@ -79,7 +79,6 @@ def plot(points):
 
 
 
-
 @app.route('/average',methods=['GET','POST'])
 def average():
     if request.method=='GET':
@@ -96,7 +95,7 @@ def average():
 ##            if newl[i]:
 ##                a.apend(newl[i])
 ##        l=a[:]
-           
+        old=l
         s=l[:]+','
         l=[]
         while(s!=''):
@@ -109,9 +108,12 @@ def average():
             sum=sum+item
             ans=float(sum)/len(l)
            
-        return render_template("average.html",title='average',ans=ans)
+        return render_template("average.html",title='average',ans=ans,old_que=old)
     else:
         return "Invalid case"
+
+
+
 
 @app.route('/team')
 def team():
