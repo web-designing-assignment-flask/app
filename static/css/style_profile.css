@@ -1,7 +1,10 @@
 img{
 width:200px;
-height:248px;
-padding-left:100px;}
+height:240px;
+position:absolute;
+left:250px;
+top:90px;
+border:1px solid black;}
 
 .intro{
 width:400px;
@@ -9,17 +12,20 @@ position:relative;
 left:400px;
 bottom:250px;
 line-height:25px;
+position:absolute;
+top:85px;
+left:540px;
 }
 
 .academic{
-position:relative;
-left:500px;
-bottom:170px;}
+position:absolute;
+left:540px;
+bottom:70px;}
 
 .courses{
-position:relative;
-bottom:420px;
-left:100px;
+position:absolute;
+bottom:67px;
+left:200px;
 }
 .academic li,.courses li{
-padding:5px;}
+padding:2px;}
