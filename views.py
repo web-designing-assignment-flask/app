@@ -1,15 +1,14 @@
-from flask import Flask,request,render_template
-
+from flask import request,render_template
+from app import app
 
 from flask import Flask,request,render_template,make_response
-app=Flask(__name__)
+
 
 import numpy.polynomial.polynomial as P
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 import StringIO
-
 
 
 @app.route('/')
@@ -21,18 +20,18 @@ def f():
 def hello_world():
 
     if request.method=='GET':
-        return render_template('get.html')
+        return render_template('get.html',title='plot')
 
     elif request.method=='POST':
         points=request.form['points']
-        return render_template('post.html',source='/plot/'+points,old_points=points)
+        return render_template('post.html',source='/plot/'+points,old_points=points,title='plot')
 
     else:
         return 'Invalid Request'
 
 @app.route('/plot/<points>')
 def plot(points):
-
+    fig_name=points[:]
     s,X,F=points[:],[],[]
     while(s!=''):
         i=s.index('(')
@@ -42,7 +41,7 @@ def plot(points):
         F.append(float(s[j+1:k]))
         s=s[k+2:]
 
-    fig=plt.figure()
+    fig=plt.figure(dpi=200)
     plt.clf()
     sub=fig.add_subplot(111)
     X1=np.arange(min(X)-2,max(X)+2,0.1)
@@ -65,17 +64,18 @@ def plot(points):
     sub.plot(X,F,'ro',markersize=8)
 
     plt.grid(True)
-    fig.legend(interpol_obj,['Interpolating Polynomial'],fancybox=True,shadow=True,loc='upper left')
+    fig.legend(interpol_obj,['Interpolating Polynomial'],fancybox=True,shadow=True,loc='upper right')
     plt.axis([min(X)-3,max(X)+3,min(Y1)-2,max(Y1)+2])
     plt.xlabel('x axis')
     plt.ylabel('y axis')
-    plt.title('Interpolate')
+    plt.savefig('static/images/saved_plots/plot-'+str(fig_name)+'.png')
     canvas = FigureCanvas(fig)
     output = StringIO.StringIO()
     canvas.print_png(output)
     response = make_response(output.getvalue())
     response.mimetype = 'image/png'
     return response
+
 
 
 
@@ -112,9 +112,6 @@ def average():
     else:
         return "Invalid case"
 
-
-
-
 @app.route('/team')
 def team():
     return render_template('team_profile.html',title='team_profile')
@@ -135,6 +132,6 @@ def team_members(name):
         return render_template('prakhar.html',title='Prakhar Gupta')
 
 
-app.run()
+
 
 
