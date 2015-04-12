@@ -1,19 +1,25 @@
 {% extends "Base.html" %}
 {% block content %}
 <form method="POST">
-    <div>
-         <label>Coordinates</label>
-        <input type="text" name="points" value={{old_points}}>
-
-    </div>
-
-    <div>
-        <button type="submit" >print PLOT</button>
-    </div>
-    <div><figure>
-        <img src={{source}}>
+     <div><figure class="plot_draw">
+        <img src={{source}} height="510px">
     </figure></div>
+
+    <div class="plot_input">
+    <div>
+         <label>Coordinates  :</label>
+        <input type="text" name="points" value={{old_points}}>
+         <button type="submit" >print PLOT</button>
+
+    </div>
+
+
+
+    </div>
+
 </form>
 {% endblock %}
+
+        
 
         
