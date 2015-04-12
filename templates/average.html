@@ -1,16 +1,16 @@
 {% extends "Base.html" %}
 {% block content %}
  <form method="POST">
-	<div>
+	<div class="average">
+	 <div>
 		<label>Enter Values:</label>
-		<input type="text" name="numbers" value="Enter comma seperated numbers" width="2000px">
+		<input type="text" name="numbers" placeholder="format:a,b,c,d,e" width="3000px" value="{{old_que}}">
+		 <button type="submit">print AVERAGE</button>
 	</div>
+	<br>
 	<div>
-		<button type="submit">Find Average</button>
-	</div>
-	<div>
-	<p>Average is:{{ans}}</p>
-	</div>
+	<p><h2>Average is: <span style="color:#ffcf5d">{{ans}}</span></h2></p>
+	</div></div>
  </form>
  
 
